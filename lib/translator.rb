@@ -31,7 +31,7 @@ def get_english_meaning(path, emoticon)
     end
   end
   return "Sorry, that emoticon was not found"
-end 	end
+end 
 # def get_english_meaning(file, emotion)
 #     library = load_library(file)
 #     library.each do |emotion, emoticons|
