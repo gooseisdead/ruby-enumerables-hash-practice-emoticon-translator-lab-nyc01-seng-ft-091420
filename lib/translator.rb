@@ -1,6 +1,6 @@
 require 'yaml'
 
-def load_library(file_path)
+def load_library(path)
   # code goes here
   emoticons = {}
 
@@ -10,7 +10,7 @@ def load_library(file_path)
     emoticons[key][:japanese] = value[1]
   end
   emoticons
-end	
+end
 
 def get_japanese_emoticon(path, emoticon)
   emoticons = load_library(path) #call load_library
