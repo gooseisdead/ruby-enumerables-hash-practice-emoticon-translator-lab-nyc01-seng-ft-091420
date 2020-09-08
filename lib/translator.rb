@@ -1,23 +1,16 @@
 require 'yaml'
 
-# Write a method that loads the emoticons.yml file.
-def load_library(path)
-  #set a hash with get_meaning, get_emoticon as keys, empty hash for value
-  emoticons = {"get_meaning" => {}, "get_emoticon" => {}}
-  #load the YAML file. It has meaning(angel, angry,..) as key and the symbol as value(describe)
-  YAML.load_file(path).each do |meaning, describe|
-     #set eng, jan from describe, so eng would be the first value, jan the second
-     eng, jan = describe
-     emoticons["get_meaning"][jan] = meaning
-     emoticons["get_emoticon"][eng] = jan
+def load_library(file_path)
+  # code goes here
+  emoticons = {}
+
+  YAML.load_file(file_path).each do |key, value|
+    emoticons[key] = {}
+    emoticons[key][:english] = value[0]
+    emoticons[key][:japanese] = value[1]
   end
   emoticons
-end
-
-# get japanese meaning:
-# accepts two arguments, the YAML file path and the emoticon
-# calls on #load_library and gives it the argument of the file path
-# returns the Japanese equivalent of an English emoticons
+end	
 
 def get_japanese_emoticon(path, emoticon)
   emoticons = load_library(path) #call load_library
